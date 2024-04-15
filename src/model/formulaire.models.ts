@@ -2,10 +2,10 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { IsMongoId } from "class-validator";
 
 
-export type ControllerDocument = Controller & Document ; 
+export type FormulaireDocument = Formulaire  & Document ; 
 
 @Schema()
-export class Controller {
+export class Formulaire  {
     @Prop({ required: true })
     location: string ; 
     @Prop({ required: true, default: Date.now })
@@ -35,4 +35,4 @@ export class Controller {
 
 }
 
-export const ControllerSchema = SchemaFactory.createForClass(Controller);
+export const FormulaireSchema = SchemaFactory.createForClass(Formulaire);

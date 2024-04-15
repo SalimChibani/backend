@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import * as bcrypt from 'bcrypt';
 
 enum LocalTypeEnum {
     كليا = "كليا",
@@ -64,6 +65,14 @@ export class User {
     DiwaniID: string ;
     @Prop({required:true})
     CommercialID: string ;
+    @Prop({ required: true })
+    username: string;
+    @Prop({ required: true })
+    password: string;
+    async validatePassword(password: string): Promise<boolean> {
+        return await bcrypt.compare(password, this.password);
+    }
+    
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

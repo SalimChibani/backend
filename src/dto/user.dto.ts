@@ -1,4 +1,5 @@
-import { IsEmail, IsEnum, IsNotEmpty,IsNumber,IsString } from "class-validator";
+import { IsEmail, IsEnum, IsNotEmpty,IsNumber,IsOptional,IsString } from "class-validator";
+import Role from "src/enums/role.enum";
 enum LocalTypeEnum {
     كليا = "كليا",
     جزئيا = "جزئيا",
@@ -46,4 +47,7 @@ export class UserDto {
     DiwaniID: string ;
     @IsNotEmpty() @IsString()
     CommercialID: string ;
+    @IsOptional()
+    @IsEnum(Role)
+    role?: Role;
 }

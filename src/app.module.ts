@@ -8,11 +8,14 @@ import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
 import { AuthModule } from './auth/auth.module';
 import { FormulaireModule } from './formulaire/formulaire.module';
+import { SignupModule } from './auth/signup/signup.module';
+
 
 @Module({
   imports: [ ConfigModule.forRoot(), 
     MongooseModule.forRoot(process.env.MONGO_URI) ,
     UsersModule,
+    SignupModule,
     ProductsModule,
     CategoriesModule,
     AuthModule,
